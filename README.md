@@ -20,7 +20,7 @@ Pour lancer le server local on utilisera Symfony-CLI. Vous pouvez l'installer si
 ### 1. Cloner le répo
 
 ```bash
-git clone <votre-repository>
+git clone https://github.com/briantci/watson-symfony.git
 cd watson-symfony
 ```
 
