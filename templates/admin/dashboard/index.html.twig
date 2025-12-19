@@ -5,6 +5,8 @@
 {% block body %}
 <h1>Dashboard Magnifique</h1>
 
+<a href="{{ path('app_link_new') }}" title="new">Ajouter un nouveau lien</a>
+
 <h2>Liens</h2>
 <table border="1" cellpadding="8">
     <thead>
@@ -28,7 +30,8 @@
                 </td>
                 <td>{{ link.description }}</td>
                 <td>
-                    <a href="{{ path('admin_link_edit', { 'id': link.id }) }}" title="Edit">Editer</a>
+                    <a href="{{ path('app_link_edit', { 'id': link.id }) }}" title="Edit">Editer</a>
+                    <a href="{{ path('app_link_delete', { 'id': link.id }) }}" title="delete">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -65,7 +68,7 @@
                 </td>
                 <td>
                     <a href="{{ path('app_user_edit', { 'id': user.id }) }}" title="Edit">Editer</a>
-                    <a href="{{ path('app_user_delete', { 'id': user.id }) }}" title="Edit">Supprimer</a>
+                    <a href="{{ path('app_user_delete', { 'id': user.id }) }}" title="delete">Supprimer</a>
                 </td>
             </tr>
         {% else %}
