@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin dashboard{% endblock %}
+
+{% block body %}
+<h1>Dashboard Magnifique</h1>
+
+<a href="{{ path('app_link_new') }}" title="new">Ajouter un nouveau lien</a>
+
+<h2>Liens</h2>
+<table border="1" cellpadding="8">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>URL</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for link in links %}
+            <tr>
+                <td>{{ link.id }}</td>
+                <td>{{ link.title }}</td>
+                <td>
+                    <a href="{{ link.url }}" target="_blank">
+                        {{ link.url }}
+                    </a>
+                </td>
+                <td>{{ link.description }}</td>
+                <td>
+                    <a href="{{ path('app_link_edit', { 'id': link.id }) }}" title="Edit">Editer</a>
+                    <a href="{{ path('app_link_delete', { 'id': link.id }) }}" title="delete">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun lien</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<hr>
+
+<a href="{{ path('app_user_new') }}" title="new">Ajouter un nouveau utilisateur</a>
+
+<h2>Utilisateurs</h2>
+<table border="1" cellpadding="8">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Rôles</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>
+                    {{ user.roles|join(', ') }}
+                </td>
+                <td>
+                    <a href="{{ path('app_user_edit', { 'id': user.id }) }}" title="Edit">Editer</a>
+                    <a href="{{ path('app_user_delete', { 'id': user.id }) }}" title="delete">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun utilisateur</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
