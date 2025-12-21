@@ -3,9 +3,18 @@
 {% block title %}Admin dashboard{% endblock %}
 
 {% block body %}
-<h1>Dashboard Magnifique</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm py-3">
+    <div class="container">
+        <ul class="collapse navbar-collapse" id="navbarNav">
+            <li class="navbar-nav p-2"><a class="navbar-brand fw-bold" href="{{ path('app_home_page') }}">Watson</a></li>
+            <li class="navbar-nav ms-auto">
+                <a class="btn btn-secondary" href="{{ path('app_logout') }}">Se déconnecter</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-<a href="{{ path('app_link_new') }}" title="new">Ajouter un nouveau lien</a>
+<h1>Dashboard Magnifique</h1>
 
 <h2>Liens</h2>
 <table border="1" cellpadding="8">
@@ -30,8 +39,8 @@
                 </td>
                 <td>{{ link.description }}</td>
                 <td>
-                    <a href="{{ path('app_link_edit', { 'id': link.id }) }}" title="Edit">Editer</a>
-                    <a href="{{ path('app_link_delete', { 'id': link.id }) }}" title="delete">Supprimer</a>
+                    <a href="{{ path('app_link_edit', { 'id': link.id }) }}" title="Edit" class="rounded-pill shadow btn btn-dark">Editer</a>
+                    <a href="{{ path('app_link_delete', { 'id': link.id }) }}" title="delete" class="rounded-pill shadow btn btn-danger">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -42,9 +51,9 @@
     </tbody>
 </table>
 
-<hr>
+<a href="{{ path('app_link_new') }}" title="new" class="rounded-pill shadow btn btn-dark m-2">Ajouter un nouveau lien</a>
 
-<a href="{{ path('app_user_new') }}" title="new">Ajouter un nouveau utilisateur</a>
+<hr>
 
 <h2>Utilisateurs</h2>
 <table border="1" cellpadding="8">
@@ -69,8 +78,8 @@
                     {{ user.roles|join(', ') }}
                 </td>
                 <td>
-                    <a href="{{ path('app_user_edit', { 'id': user.id }) }}" title="Edit">Editer</a>
-                    <a href="{{ path('app_user_delete', { 'id': user.id }) }}" title="delete">Supprimer</a>
+                    <a href="{{ path('app_user_edit', { 'id': user.id }) }}" title="Edit" class="rounded-pill shadow btn btn-dark">Editer</a>
+                    <a href="{{ path('app_user_delete', { 'id': user.id }) }}" title="delete" class="rounded-pill shadow btn btn-danger">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -80,4 +89,7 @@
         {% endfor %}
     </tbody>
 </table>
+
+<a href="{{ path('app_user_new') }}" title="new" class="rounded-pill shadow btn btn-dark m-2">Ajouter un nouveau utilisateur</a>
+
 {% endblock %}
