@@ -4,8 +4,8 @@
 
 {% block body %}
     <h1>Edit Link</h1>
+    
+    <a href="{{ path('app_admin_dashboard') }}" class="btn btn-warning">Retour vers la liste</a>
 
-    {{ include('link/_form.html.twig', {'button_label': 'Editer'}) }}
-
-    <a href="{{ path('app_admin_dashboard') }}">Retour vers la liste</a>
+    {{ include('link/_form.html.twig', {'button_label': 'Valider'}) }}
 {% endblock %}

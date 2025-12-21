@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Créer un nouveau lien</h1>
 
-    {{ include('link/_form.html.twig') }}
+    <a href="{{ path('app_admin_dashboard') }}" class="btn btn-warning">Retour vers la liste</a>
 
-    <a href="{{ path('app_admin_dashboard') }}">Retour vers la liste</a>
+    {{ include('link/_form.html.twig') }}
 {% endblock %}
