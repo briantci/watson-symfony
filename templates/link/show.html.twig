@@ -5,7 +5,11 @@
 {% block body %}
     <h1>Lien</h1>
 
-    <a href="{{ path('app_admin_dashboard') }}" class="btn btn-warning">Retour vers la liste</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_admin_dashboard') }}" class="btn btn-warning">Retour vers la liste</a>
+    {% else %}
+        <a href="{{ path('app_home_page') }}" class="btn btn-warning">Retour vers la liste</a>
+    {% endif %}
 
     <table class="table">
         <tbody>
@@ -28,7 +32,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_link_edit', {'id': link.id}) }}" class="btn btn-secondary">Editer</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_link_edit', {'id': link.id}) }}" class="btn btn-secondary">Editer</a>
+        {{ include('link/_delete_form.html.twig') }}
+    {% endif %}
 
-    {{ include('link/_delete_form.html.twig') }}
 {% endblock %}
