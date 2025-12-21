@@ -14,7 +14,7 @@ final class Version20251221172006 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return '';
+        return 'Add keywords column to link table';
     }
 
     public function up(Schema $schema): void
