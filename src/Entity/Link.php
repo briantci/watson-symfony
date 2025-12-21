@@ -22,6 +22,9 @@ class Link
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?array $keywords = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Link
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getKeywords(): ?array
+    {
+        return $this->keywords;
+    }
+
+    public function setKeywords(?array $keywords): static
+    {
+        $this->keywords = $keywords;
 
         return $this;
     }
