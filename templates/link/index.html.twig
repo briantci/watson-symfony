@@ -3,13 +3,13 @@
 {% block title %}Link index{% endblock %}
 
 {% block body %}
-    <h1>Link index</h1>
+    <h1>Liens</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Url</th>
                 <th>Description</th>
             </tr>
@@ -24,11 +24,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun lien</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_link_new') }}">Create new</a>
+    <a href="{{ path('app_link_new') }}">Rajouter un lien</a>
 {% endblock %}
