@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Créer un nouveau utilisateur</h1>
 
-    {{ include('user/_form.html.twig') }}
-
     <a href="{{ path('app_admin_dashboard') }}" class="btn btn-warning">Retour vers la liste</a>
+
+    {{ include('user/_form.html.twig') }}
 {% endblock %}
