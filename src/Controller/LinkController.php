@@ -33,7 +33,7 @@ final class LinkController extends AbstractController
             $entityManager->persist($link);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_link_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_dashboard', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('link/new.html.twig', [
@@ -59,7 +59,7 @@ final class LinkController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_link_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_admin_dashboard', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('link/edit.html.twig', [
@@ -76,6 +76,6 @@ final class LinkController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_link_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_admin_dashboard', [], Response::HTTP_SEE_OTHER);
     }
 }
