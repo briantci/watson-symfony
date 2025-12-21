@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New keyword{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau mot clé</h1>
+
+    <a href="{{ path('app_admin_dashboard') }}" class="btn btn-warning">Retour vers le dashboard</a>
+
+    {{ include('keyword/_form.html.twig') }}
+{% endblock %}

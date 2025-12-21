@@ -22,7 +22,7 @@ final class KeywordController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_link_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_keyword_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $keyword = new Keyword();
@@ -36,8 +36,8 @@ final class KeywordController extends AbstractController
             return $this->redirectToRoute('app_keyword_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('link/new.html.twig', [
-            'link' => $keyword,
+        return $this->render('keyword/new.html.twig', [
+            'keyword' => $keyword,
             'form' => $form,
         ]);
     }
