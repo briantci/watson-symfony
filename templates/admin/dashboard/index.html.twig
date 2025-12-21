@@ -5,8 +5,6 @@
 {% block body %}
 <h1>Dashboard Magnifique</h1>
 
-<a href="{{ path('app_link_new') }}" title="new">Ajouter un nouveau lien</a>
-
 <h2>Liens</h2>
 <table border="1" cellpadding="8">
     <thead>
@@ -30,8 +28,8 @@
                 </td>
                 <td>{{ link.description }}</td>
                 <td>
-                    <a href="{{ path('app_link_edit', { 'id': link.id }) }}" title="Edit">Editer</a>
-                    <a href="{{ path('app_link_delete', { 'id': link.id }) }}" title="delete">Supprimer</a>
+                    <a href="{{ path('app_link_edit', { 'id': link.id }) }}" title="Edit" class="rounded-pill shadow btn btn-dark">Editer</a>
+                    <a href="{{ path('app_link_delete', { 'id': link.id }) }}" title="delete" class="rounded-pill shadow btn btn-dark">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -42,9 +40,9 @@
     </tbody>
 </table>
 
-<hr>
+<a href="{{ path('app_link_new') }}" title="new" class="rounded-pill shadow btn btn-dark m-2">Ajouter un nouveau lien</a>
 
-<a href="{{ path('app_user_new') }}" title="new">Ajouter un nouveau utilisateur</a>
+<hr>
 
 <h2>Utilisateurs</h2>
 <table border="1" cellpadding="8">
@@ -69,8 +67,8 @@
                     {{ user.roles|join(', ') }}
                 </td>
                 <td>
-                    <a href="{{ path('app_user_edit', { 'id': user.id }) }}" title="Edit">Editer</a>
-                    <a href="{{ path('app_user_delete', { 'id': user.id }) }}" title="delete">Supprimer</a>
+                    <a href="{{ path('app_user_edit', { 'id': user.id }) }}" title="Edit" class="rounded-pill shadow btn btn-dark">Editer</a>
+                    <a href="{{ path('app_user_delete', { 'id': user.id }) }}" title="delete" class="rounded-pill shadow btn btn-dark">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -80,4 +78,7 @@
         {% endfor %}
     </tbody>
 </table>
+
+<a href="{{ path('app_user_new') }}" title="new" class="rounded-pill shadow btn btn-dark m-2">Ajouter un nouveau utilisateur</a>
+
 {% endblock %}
