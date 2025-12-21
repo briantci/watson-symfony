@@ -40,7 +40,7 @@
                 <td>{{ link.description }}</td>
                 <td>
                     <a href="{{ path('app_link_edit', { 'id': link.id }) }}" title="Edit" class="rounded-pill shadow btn btn-dark">Editer</a>
-                    <a href="{{ path('app_link_delete', { 'id': link.id }) }}" title="delete" class="rounded-pill shadow btn btn-dark">Supprimer</a>
+                    <a href="{{ path('app_link_delete', { 'id': link.id }) }}" title="delete" class="rounded-pill shadow btn btn-danger">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -79,7 +79,7 @@
                 </td>
                 <td>
                     <a href="{{ path('app_user_edit', { 'id': user.id }) }}" title="Edit" class="rounded-pill shadow btn btn-dark">Editer</a>
-                    <a href="{{ path('app_user_delete', { 'id': user.id }) }}" title="delete" class="rounded-pill shadow btn btn-dark">Supprimer</a>
+                    <a href="{{ path('app_user_delete', { 'id': user.id }) }}" title="delete" class="rounded-pill shadow btn btn-danger">Supprimer</a>
                 </td>
             </tr>
         {% else %}

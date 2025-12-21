@@ -20,18 +20,21 @@ class UserType extends AbstractType
                 'label' => 'Email',
                 'attr' => [
                     'class' => 'form-control',
+                    'placeholder' => 'email@email.com',
                 ],
             ])
             ->add('firstname', TextType::class, [
                 'label' => 'Prénom',
                 'attr' => [
                     'class' => 'form-control',
+                    'placeholder' => 'Prénom',
                 ],
             ])
             ->add('lastname', TextType::class, [
                 'label' => 'Nom',
                 'attr' => [
                     'class' => 'form-control',
+                    'placeholder' => 'Nom',
                 ],
             ])
             ->add('roles', ChoiceType::class, [
@@ -49,6 +52,7 @@ class UserType extends AbstractType
                 'label' => 'Mot de passe',
                 'attr' => [
                     'class' => 'form-control',
+                    'placeholder' => 'Mot de passe',
                 ],
             ]);
     }
