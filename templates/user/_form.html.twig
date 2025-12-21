@@ -1,4 +1,35 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-success">{{ button_label|default('Valider') }}</button>
+
+<div class="mb-3">
+    {{ form_label(form.email) }}
+    {{ form_widget(form.email) }}
+    {{ form_errors(form.email) }}
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-3">
+        {{ form_label(form.firstname) }}
+        {{ form_widget(form.firstname) }}
+    </div>
+
+    <div class="col-md-6 mb-3">
+        {{ form_label(form.lastname) }}
+        {{ form_widget(form.lastname) }}
+    </div>
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.roles) }}
+    {{ form_widget(form.roles) }}
+</div>
+
+<div class="mb-3">
+    {{ form_label(form.plainPassword) }}
+    {{ form_widget(form.plainPassword) }}
+</div>
+
+<button class="btn btn-success">
+    {{ button_label|default('Valider') }}
+</button>
+
 {{ form_end(form) }}
