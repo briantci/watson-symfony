@@ -29,6 +29,14 @@
                 <th>Description</th>
                 <td>{{ link.description }}</td>
             </tr>
+            <tr>
+                <th>Mots-clés</th>
+                <td>
+                    {% for keyword in link.keywords %}
+                    <span class="badge bg-secondary">{{ keyword }}</span>
+                    {% endfor %}
+                </td>
+            </tr>
         </tbody>
     </table>
 
