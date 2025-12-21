@@ -42,6 +42,11 @@
 							<div class="card h-100">
 								<div class="card-body">
 									<h5 class="card-title">{{ link.title }}</h5>
+									<div>
+									{% for keyword in link.keywords %}
+										<span class="badge bg-secondary">{{ keyword }}</span>
+									{% endfor %}
+									</div>
 									<p class="card-text">{{ link.description }}</p>
 									<a href="{{ path('app_link_show', {'id': link.id}) }}" class="btn btn-primary">Visiter</a>
 								</div>
