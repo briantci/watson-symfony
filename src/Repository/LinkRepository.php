@@ -16,6 +16,14 @@ class LinkRepository extends ServiceEntityRepository
         parent::__construct($registry, Link::class);
     }
 
+    public function getLast(int $max = 6)
+    {
+        return $this->createQueryBuilder('l')
+            ->setMaxResults($max)
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Link[] Returns an array of Link objects
     //     */
