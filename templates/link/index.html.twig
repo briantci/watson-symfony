@@ -12,7 +12,6 @@
                 <th>Title</th>
                 <th>Url</th>
                 <th>Description</th>
-                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,10 +21,6 @@
                 <td>{{ link.title }}</td>
                 <td>{{ link.url }}</td>
                 <td>{{ link.description }}</td>
-                <td>
-                    <a href="{{ path('app_link_show', {'id': link.id}) }}">show</a>
-                    <a href="{{ path('app_link_edit', {'id': link.id}) }}">edit</a>
-                </td>
             </tr>
         {% else %}
             <tr>
