@@ -25,6 +25,12 @@
                             Se connecter
                         </a>
                     </li>
+                {%  else %}
+                    <li class="navbar-nav ms-auto">
+                        <a class="btn btn-secondary" href="{{ path('app_logout') }}">
+                            Se déconnecter
+                        </a>
+                    </li>
                 {% endif %}
             </ul>
         </div>
