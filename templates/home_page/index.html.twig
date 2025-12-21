@@ -36,20 +36,44 @@
         </div>
     </nav>
 
-    {# Main Hero Content #}
-    <section class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold">Bienvenue sur Watson</h1>
-                    <p class="lead text-muted">Votre plateforme de gestion de liens</p>
-                    <div class="d-grid gap-2 d-md-flex">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://via.placeholder.com/500x400" class="img-fluid rounded" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
+		<section class="py-5">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<h1 class="display-4 fw-bold">Bienvenue sur Watson</h1>
+						<p class="lead text-muted">Développé par les étudiants Unilim.</p>
+						<div class="d-grid gap-2 d-md-flex"></div>
+					</div>
+					<div class="col-lg-6"></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-5 bg-white">
+			<div class="container">
+				<div class="d-flex justify-content-between align-items-center mb-4">
+					<h2 class="mb-4">Derniers liens</h2>
+					<a href="{{ path('app_link_index') }}" class="btn btn-light">Voir tous</a>
+				</div>
+				<div class="row g-4">
+					{% for link in links %}
+						<div class="col-md-6 col-lg-4">
+							<div class="card h-100">
+								<div class="card-body">
+									<h5 class="card-title">{{ link.title }}</h5>
+									<div>
+									{% for keyword in link.keywords %}
+										<span class="badge bg-secondary">{{ keyword }}</span>
+									{% endfor %}
+									</div>
+									<p class="card-text">{{ link.description }}</p>
+									<a href="{{ path('app_link_show', {'id': link.id}) }}" class="btn btn-primary">Visiter</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+	</div>
 {% endblock %}

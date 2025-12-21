@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\LinkRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LinkRepository::class)]
@@ -22,8 +23,8 @@ class Link
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?array $keywords = null;
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private ?array $keywords = [];
 
     public function getId(): ?int
     {

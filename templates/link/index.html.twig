@@ -14,6 +14,7 @@
                 <th>Titre</th>
                 <th>Url</th>
                 <th>Description</th>
+                <th>Mots-clés</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,11 @@
                 <td>{{ link.title }}</td>
                 <td>{{ link.url }}</td>
                 <td>{{ link.description }}</td>
+                <td>
+                    {% for keyword in link.keywords %}
+                    <span class="badge bg-secondary">{{ keyword }}</span>
+                    {% endfor %}
+                </td>
             </tr>
         {% else %}
             <tr>
