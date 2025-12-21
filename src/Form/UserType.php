@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class UserType extends AbstractType
 {
@@ -21,7 +22,11 @@ class UserType extends AbstractType
                 ],
                 'multiple' => true,
                 ])
-            ->add('password')
+            ->add('plainPassword', PasswordType::class, [
+                'mapped' => false,
+                'required' => false,
+                'label' => 'Mot de passe',
+            ])
             ->add('firstname')
             ->add('lastname')
         ;

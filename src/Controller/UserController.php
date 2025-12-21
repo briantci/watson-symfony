@@ -37,7 +37,7 @@ final class UserController extends AbstractController
 
             $hashedPassword = $passwordHasher->hashPassword(
                 $user,
-                $user->getPassword()
+                $form->get('plainPassword')->getData()
             );
 
             $user->setPassword($hashedPassword);
@@ -63,12 +63,28 @@ final class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    public function edit(
+        Request $request,
+        User $user,
+        EntityManagerInterface $entityManager,
+        UserPasswordHasherInterface $passwordHasher
+    ): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $plainPassword = $form->get('plainPassword')->getData();
+
+            // hash uniquement si l’admin a saisi un nouveau mot de passe
+            if ($plainPassword) {
+                $hashedPassword = $passwordHasher->hashPassword(
+                    $user,
+                    $plainPassword
+                );
+                $user->setPassword($hashedPassword);
+            }
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_admin_dashboard', [], Response::HTTP_SEE_OTHER);
